@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo "=== Verificando arquivos de capas ==="
+ls -la capas/ 2>/dev/null || echo "Pasta 'capas' não encontrada"
+
+echo ""
+echo "=== Verificando arquivos de singles ==="
+ls -la singles/ 2>/dev/null || echo "Pasta 'singles' não encontrada"
+
+echo ""
+echo "=== Nomes esperados para capas ==="
+echo "la-onde-o-agora-espera.jpg"
+echo "cantigas-de-nao-chegar.jpg"
+echo "outros-caminhos-vol-2.jpg"
+echo "outros-caminhos.jpg"
+echo "outras-canções-de-desvio.jpg"
+
+echo ""
+echo "=== Nomes esperados para singles ==="
+echo "ocio-do-oficio.jpg"
+echo "que-reu-sou-eu.jpg"
+echo "eclipse.jpg"
+echo "alamedas.jpg"
+echo "canto-periferico.jpg"
+echo "migalhas.jpg"
+echo "cantiga-de-nao-chegar.jpg"
+echo "vasto-vazio.jpg"
+echo "rabiolas-enfeitam-parabolicas.jpg"
+echo "espelho.jpg"
+echo "amor-embalado-a-vacuo.jpg"

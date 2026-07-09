@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flávvio Alves - poeta, compositor e produtor musical brasileiro. Obras gravadas por Ceumar, Zeca Baleiro, Fred Martins. Fundador do Selo Sete Sóis.">
+    <meta name="keywords" content="Flávvio Alves, poeta brasileiro, compositor MPB, Sete Sóis, Kleber Albuquerque, música independente brasileira, Ceumar, Zeca Baleiro, Fred Martins">
+    <meta name="author" content="Flávvio Alves">
+    <title>Flávvio Alves | Poeta, Compositor & Produtor Musical</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wine: #3D1519;
+            --wine-dark: #2A0E11;
+            --wine-light: #5A1F26;
+            --wine-drop: #6B1E25;
+            --wine-glow: #8B2E35;
+            --gold: #D4AF37;
+            --purple: #8B6F9E;
+            --paper: #F5E6C8;
+            --paper-dark: #E8D5A8;
+            --paper-light: #FAF0DC;
+            --ink: #2C2420;
+            --ink-light: #5A4F45;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Textura de papel envelhecido global */
+        .paper-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* Manchas de vinho globais */
+        .global-wine-stains {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .global-stain {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(60px);
+        }
+
+        .global-stain-1 {
+            top: 20%;
+            right: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--wine) 0%, transparent 70%);
+            animation: stainFloat 20s ease-in-out infinite;
+        }
+
+        .global-stain-2 {
+            bottom: 30%;
+            left: 5%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--wine-dark) 0%, transparent 70%);
+            animation: stainFloat 25s ease-in-out infinite reverse;
+        }
+
+        .global-stain-3 {
+            top: 60%;
+            right: 20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--wine-light) 0%, transparent 60%);
+            animation: stainFloat 22s ease-in-out infinite;
+        }
+
+        @keyframes stainFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 230, 200, 0.98);
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: 'Staatliches', display;
+            font-size: 1.8rem;
+            color: var(--wine);
+            text-decoration: none;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--wine);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--wine);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 2px;
+            background: var(--ink);
+            transition: all 0.3s ease;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--paper) 0%, var(--paper-dark) 50%, var(--paper) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(61, 21, 25, 0.02) 2px,
+                    rgba(61, 21, 25, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1400px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 20;
+        }
+
+        .hero-label {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--wine-light);
+            margin-bottom: 1.5rem;
+            display: block;
+            opacity: 0;
+            animation: fadeInLeft 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .hero-title {
+            font-family: 'Staatliches', display;
+            font-size: 8.5rem;
+            font-weight: 400;
+            line-height: 0.85;
+            color: var(--wine);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 0px rgba(61, 21, 25, 0.2);
+        }
+
+        .hero-title .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: letterReveal 0.6s ease forwards;
+        }
+
+        .hero-title .letter:nth-child(1) { animation-delay: 0.5s; }
+        .hero-title .letter:nth-child(2) { animation-delay: 0.6s; }
+        .hero-title .letter:nth-child(3) { animation-delay: 0.7s; }
+        .hero-title .letter:nth-child(4) { animation-delay: 0.8s; }
+        .hero-title .letter:nth-child(5) { animation-delay: 0.9s; }
+        .hero-title .letter:nth-child(6) { animation-delay: 1.0s; }
+        .hero-title .letter:nth-child(7) { animation-delay: 1.1s; }
+        .hero-title .letter:nth-child(8) { animation-delay: 1.3s; }
+        .hero-title .letter:nth-child(9) { animation-delay: 1.4s; }
+        .hero-title .letter:nth-child(10) { animation-delay: 1.5s; }
+        .hero-title .letter:nth-child(11) { animation-delay: 1.6s; }
+        .hero-title .letter:nth-child(12) { animation-delay: 1.7s; }
+
+        @keyframes letterReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--ink-light);
+            margin-bottom: 1.5rem;
+            max-width: 480px;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+            animation-delay: 2s;
+        }
+
+                .hero-cta {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os botões quebrem linha se não couberem */
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+            animation-delay: 2.3s;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--wine);
+            color: white;
+            box-shadow: 0 4px 15px rgba(61, 21, 25, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--wine-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(61, 21, 25, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--wine);
+            border: 2px solid var(--wine);
+        }
+
+        .btn-secondary:hover {
+            background: var(--wine);
+            color: white;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding-top: 80px;
+            opacity: 0;
+            transform: translateX(-100vw);
+            animation: slideInFromLeft 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideInFromLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 500px;
+            height: 650px;
+            overflow: visible;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top center;
+            filter: contrast(1.05) saturate(1.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-shadow {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 60px;
+            background: rgba(61, 21, 25, 0.25);
+            filter: blur(30px);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 3s;
+            z-index: 10;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .scroll-line {
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--wine), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(40px); }
+        }
+
+        @keyframes fadeInLeft {
+            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateX(-30px); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.5; transform: scaleY(0.8); }
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            position: relative;
+            padding: 8rem 5%;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--wine-light);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Staatliches', display;
+            font-size: 4rem;
+            color: var(--wine);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .section-title.animated .letter {
+            animation: letterReveal 0.5s ease forwards;
+        }
+
+        .title-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--wine), var(--gold));
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .text-block {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--ink-light);
+        }
+
+        .text-block p {
+            margin-bottom: 1.2rem;
+        }
+
+        .text-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--ink);
+            font-weight: 400;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--wine);
+        }
+
+        .lead strong {
+            color: var(--wine);
+            font-weight: 600;
+        }
+
+        .subsection-title {
+            font-family: 'Staatliches', display;
+            font-size: 1.8rem;
+            color: var(--wine);
+            margin: 2rem 0 1rem;
+            letter-spacing: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(61, 21, 25, 0.05), rgba(212, 175, 55, 0.05));
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(61, 21, 25, 0.1);
+        }
+
+        .highlight-box p {
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        .about-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar-card {
+            background: #F4C430;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(61, 21, 25, 0.15);
+            border: 1px solid rgba(61, 21, 25, 0.1);
+        }
+        .sidebar-card h4 {
+            font-family: 'Staatliches', display;
+            font-size: 1.3rem;
+            color: var(--wine-dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--wine);
+        }
+        .career-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .career-highlights li {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--paper-dark);
+        }
+
+        .career-highlights li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .highlight-number {
+            font-family: 'Staatliches', display;
+            font-size: 2rem;
+            color: var(--wine);
+            min-width: 60px;
+            letter-spacing: 1px;
+        }
+
+        .highlight-text {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            line-height: 1.5;
+        }
+
+        .artist-tags,
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .artist-tag,
+        .genre-tag {
+            background: linear-gradient(135deg, var(--wine), var(--wine-light));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .artist-tag:hover,
+        .genre-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(61, 21, 25, 0.3);
+        }
+
+        /* DISCOGRAPHY SECTION */
+        .discography-section {
+            position: relative;
+            padding: 8rem 5%;
+            overflow: hidden;
+        }
+
+        .discography-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .discography-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-title {
+            font-family: 'Staatliches', display;
+            font-size: 2.5rem;
+            color: var(--wine);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-title::before {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .category-title .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .category-title.animated .letter {
+            animation: letterReveal 0.5s ease forwards;
+        }
+
+        /* Scroll horizontal */
+        .scroll-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-wrapper {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 2rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--wine) var(--paper-dark);
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar-track {
+            background: var(--paper-dark);
+            border-radius: 10px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar-thumb {
+            background: var(--wine);
+            border-radius: 10px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar-thumb:hover {
+            background: var(--wine-dark);
+        }
+
+        .album-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(61, 21, 25, 0.15);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(61, 21, 25, 0.1);
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(61, 21, 25, 0.25);
+        }
+
+        .album-cover {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background: var(--paper-dark);
+        }
+
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .album-card:hover .album-cover img {
+            transform: scale(1.1);
+        }
+
+        .album-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 21, 25, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .album-card:hover .album-overlay {
+            opacity: 1;
+        }
+
+        .spotify-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #1DB954;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .spotify-btn:hover {
+            background: #1ed760;
+            transform: scale(1.05);
+        }
+
+        .spotify-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .album-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .album-year {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .album-title {
+            font-family: 'Staatliches', display;
+            font-size: 1.3rem;
+            color: var(--wine);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .album-type {
+            font-size: 0.75rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Scroll buttons */
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--wine);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(61, 21, 25, 0.3);
+        }
+
+        .scroll-btn:hover {
+            background: var(--wine-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn-left {
+            left: -25px;
+        }
+
+        .scroll-btn-right {
+            right: -25px;
+        }
+
+        /* SETE SÓIS SECTION */
+        .sete-sois-section {
+            position: relative;
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+            color: var(--paper);
+            overflow: hidden;
+        }
+
+        .sete-sois-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(245, 230, 200, 0.02) 2px,
+                    rgba(245, 230, 200, 0.02) 4px
+                );
+            pointer-events: none;
+        }
+
+        .sete-sois-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sete-sois-section .section-label {
+            color: var(--gold);
+        }
+
+        .sete-sois-section .section-title {
+            color: var(--paper);
+            font-size: 4.5rem;
+        }
+
+        .sete-sois-description {
+            font-size: 1.2rem;
+            line-height: 2;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+
+        .sete-sois-features {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-gold {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--wine-dark);
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            position: relative;
+            padding: 8rem 5%;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--wine);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--wine);
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .social-link:hover {
+            background: var(--wine);
+            color: var(--paper);
+            transform: translateY(-5px);
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            color: var(--wine);
+            text-decoration: none;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--gold);
+            border-color: var(--wine);
+        }
+
+        /* NOVO ÁLBUM SECTION */
+.novo-album-section {
+    position: relative;
+    padding: 8rem 5%;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+    color: var(--paper);
+    overflow: hidden;
+}
+
+.novo-album-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(245, 230, 200, 0.02) 2px,
+            rgba(245, 230, 200, 0.02) 4px
+        );
+    pointer-events: none;
+}
+
+.novo-album-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.novo-album-section .section-label {
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.novo-album-section .section-title {
+    color: var(--paper);
+    font-family: 'Staatliches', display;
+    font-size: 4.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+}
+
+.novo-album-section .title-line {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--paper));
+    margin: 0 auto 3rem;
+}
+
+.novo-album-description {
+    font-size: 1.2rem;
+    line-height: 2;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    opacity: 0.9;
+}
+
+.novo-album-highlight {
+    display: inline-block;
+    font-family: 'Staatliches', display;
+    font-size: 2rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    border: 2px solid var(--gold);
+    border-radius: 5px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.2);
+    }
+}
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 3rem 5%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 6.5rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 1.5rem;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-image-wrapper {
+                width: 400px;
+                height: 500px;
+            }
+
+            .hero-image-container {
+                justify-content: center;
+                padding-top: 60px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .album-card {
+                flex: 0 0 250px;
+            }
+
+            .scroll-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .hero-image-wrapper {
+                width: 300px;
+                height: 400px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .subsection-title {
+                font-size: 1.5rem;
+            }
+
+            .album-card {
+                flex: 0 0 220px;
+            }
+
+            .album-cover {
+                height: 220px;
+            }
+
+            .sete-sois-features {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Textura de papel global -->
+    <svg class="paper-texture" xmlns="http://www.w3.org/2000/svg">
+        <filter id="noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0, 0 0.9 0 0 0, 0 0 0.7 0 0, 0 0 0 0.15 0"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)"/>
+    </svg>
+
+    <!-- Manchas de vinho globais -->
+    <div class="global-wine-stains">
+        <div class="global-stain global-stain-1"></div>
+        <div class="global-stain global-stain-2"></div>
+        <div class="global-stain global-stain-3"></div>
+    </div>
+
+    <nav id="navbar">
+        <a href="#" class="logo">Flávvio Alves</a>
+        <ul class="nav-links">
+            <li><a href="#novo-album">Novo Álbum</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#discografia">Discografia</a></li>
+            <li><a href="#sete-sois">Sete Sóis</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-label">poeta | compositor | produtor musical</span>
+                <h1 class="hero-title">
+                    <span class="letter">F</span><span class="letter">L</span><span class="letter">Á</span><span class="letter">V</span><span class="letter">V</span><span class="letter">I</span><span class="letter">O</span><br>
+                    <span class="letter">A</span><span class="letter">L</span><span class="letter">V</span><span class="letter">E</span><span class="letter">S</span>
+                </h1>
+                <p class="hero-description">
+                    Versos que se fazem música. Obras gravadas por Ceumar, Zeca Baleiro,
+                    Fred Martins e tantos outros. Do selo Sete Sóis às parcerias que
+                    atravessam o Brasil.
+                </p>
+                <div class="hero-cta">
+                    <a href="#discografia" class="btn btn-secondary">Ouvir Agora</a>
+                    <a href="#sobre" class="btn btn-secondary">Conhecer</a>
+                </div>
+            </div> <!-- Faltava fechar esta div! -->
+
+            <div class="hero-image-container">
+                <div class="hero-image-wrapper">
+                    <img src="./imagens/flavvio_alves.png" alt="Flávvio Alves - Poeta e Compositor">
+                </div>
+                <div class="hero-image-shadow"></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Role</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- NOVO ÁLBUM -->
+<section id="novo-album" class="novo-album-section">
+    <div class="novo-album-container">
+        <div class="section-header fade-in">
+            <p class="section-label">Em Breve</p>
+            <h2 class="section-title" data-animate-title>Novo Álbum</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="novo-album-highlight fade-in">
+            FLÁVVIO ALVES
+        </div>
+
+        <p class="novo-album-description fade-in">
+            Um novo trabalho está chegando. Fruto de parcerias, reflexões e muita poesia
+            musicada, o novo álbum de Flávvio Alves em breve estará disponível em todas
+            as plataformas digitais. Prepare o coração para mais uma jornada de versos
+            e melodias que atravessam a alma.
+        </p>
+
+        <a href="novo-album.html" class="btn btn-gold fade-in">Saiba Mais</a>
+    </div>
+</section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="about-section">
+        <div class="about-container">
+            <div class="section-header fade-in">
+                <p class="section-label">Conheça</p>
+                <h2 class="section-title" data-animate-title>Flávvio Alves</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <div class="text-block">
+                        <p class="lead">
+                            <strong>Flávvio Alves</strong> é poeta, compositor, produtor musical e um dos fundadores do 
+                            <strong>selo Sete Sóis</strong>, referência na música independente brasileira com mais de 70 álbuns lançados.
+                        </p>
+                        
+                        <p>
+                            Sua obra poética e musical transita entre a tradição e a contemporaneidade, criando canções 
+                            que exploram a profundidade das emoções humanas e a complexidade das relações. Como 
+                            <strong>compositor de MPB</strong>, tem suas obras gravadas por grandes nomes da música brasileira, 
+                            incluindo <strong>Ceumar</strong>, <strong>Zeca Baleiro</strong>, <strong>Fred Martins</strong>, 
+                            <strong>Renato Braz</strong>, <strong>Rubi</strong> e <strong>Kleber Albuquerque</strong>.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3 class="subsection-title">Parcerias Musicais</h3>
+                        <p>
+                            Ao longo de sua carreira, Flávvio Alves construiu parcerias significativas com artistas 
+                            de diferentes gerações e estilos. Entre seus principais parceiros estão 
+                            <strong>Alice Ruiz</strong>, <strong>Adolar Marin</strong> (com quem tem dois álbuns), 
+                            <strong>Carlos Careqa</strong>, <strong>Daniel Groove</strong>, 
+                            <strong>Fernando Cavallieri</strong>, <strong>Marco Vilane</strong> e 
+                            <strong>Elaine Frere</strong>.
+                        </p>
+                        
+                        <p>
+                            Sua parceria mais longeva e produtiva é com <strong>Kléber Albuquerque</strong>, 
+                            compositor com mais de 25 anos de carreira. Juntos, criaram o álbum 
+                            <strong>"Cantigas de Não Chegar"</strong> (2023), inspirado na peregrinação que fizeram 
+                            pelo <strong>Caminho de Santiago de Compostela</strong> em 2016. As canções do álbum, 
+                            como "Vasto Vazio", "Eclipse" e "Dor de Gente", refletem sobre a jornada, as descobertas 
+                            e as reflexões nascidas dessa experiência transformadora.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3 class="subsection-title">Obras e Lançamentos</h3>
+                        <p>
+                            Entre seus trabalhos autorais, destaca-se o CD 
+                            <strong>"Outras Canções de Desvio"</strong>, que conta com arte de capa criada pelo 
+                            renomado artista plástico <strong>Lourenço Mutarelli</strong>. O álbum reúne composições 
+                            em parceria com artistas de diferentes estados do Brasil, demonstrando a abrangência e 
+                            a diversidade de sua produção poética e musical.
+                        </p>
+                        
+                        <p>
+                            Como <strong>produtor musical</strong> e fundador do <strong>Sete Sóis</strong>, 
+                            Flávvio Alves tem contribuído ativamente para o fortalecimento da cena musical independente, 
+                            apoiando e divulgando o trabalho de novos e consagrados artistas da música brasileira.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block highlight-box">
+                        <h3 class="subsection-title">Poesia que se Faz Canção</h3>
+                        <p>
+                            A poesia de Flávvio Alves é marcada pela sensibilidade aguda, pela observação atenta do 
+                            cotidiano e pela capacidade de transformar experiências pessoais em versos universais. 
+                            Suas letras exploram temas como o amor, a saudade, a espiritualidade e a condição humana, 
+                            sempre com um olhar poético que convida à reflexão e ao encantamento.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="about-sidebar fade-in">
+                    <div class="sidebar-card">
+                        <h4>Destaques da Carreira</h4>
+                        <ul class="career-highlights">
+                            <li>
+                                <span class="highlight-number">70+</span>
+                                <span class="highlight-text">Álbuns lançados pelo Selo Sete Sóis</span>
+                            </li>
+                            <li>
+                                <span class="highlight-number">15+</span>
+                                <span class="highlight-text">Parcerias musicais consolidadas</span>
+                            </li>
+                            <li>
+                                <span class="highlight-number">2016</span>
+                                <span class="highlight-text">Caminho de Santiago de Compostela</span>
+                            </li>
+                            <li>
+                                <span class="highlight-number">2023</span>
+                                <span class="highlight-text">Lançamento de "Cantigas de Não Chegar"</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h4>Artistas que Gravaram</h4>
+                        <div class="artist-tags">
+                            <span class="artist-tag">Ceumar</span>
+                            <span class="artist-tag">Zeca Baleiro</span>
+                            <span class="artist-tag">Fred Martins</span>
+                            <span class="artist-tag">Kleber Albuquerque</span>
+                            <span class="artist-tag">Renato Braz</span>
+                            <span class="artist-tag">Rubi</span>
+                            <span class="artist-tag">Adolar Marin</span>
+                            <span class="artist-tag">Alice Ruiz</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h4>Gêneros Musicais</h4>
+                        <div class="genre-tags">
+                            <span class="genre-tag">MPB</span>
+                            <span class="genre-tag">Música Popular Brasileira</span>
+                            <span class="genre-tag">Poesia Musicada</span>
+                            <span class="genre-tag">Música Independente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCOGRAFIA -->
+    <section id="discografia" class="discography-section">
+        <div class="discography-container">
+            <div class="section-header fade-in">
+                <p class="section-label">Música</p>
+                <h2 class="section-title" data-animate-title>Discografia</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- Álbuns -->
+            <div class="discography-category">
+                <h3 class="category-title" data-animate-title>Álbuns</h3>
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollAlbums('albums', -1)">‹</button>
+                    <div class="scroll-wrapper" id="albums">
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="./capas/la-onde-o-agora-espera.jpg" alt="Lá onde o agora espera">
+                                <div class="album-overlay">
+                                    <a href="https://open.spotify.com/album/29PGtkwJg1gD8BLkF4j8kU?si=fAxBFjelS5OtkZtmfSIewA" target="_blank" class="spotify-btn">
+                                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                        </svg>
+                                        Ouvir no Spotify
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <p class="album-year">2026</p>
+                                <h4 class="album-title">Lá onde o agora espera</h4>
+                                <p class="album-type">Álbum</p>
+                            </div>
+                        </div>
+
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="./capas/cantigas-de-nao-chegar.jpg" alt="Cantigas de não chegar">
+                                <div class="album-overlay">
+                                    <a href="https://open.spotify.com/album/3Wqi8nCToHsWRl79XsbBYX?si=VJOsFbmHTyWYzPKUa6PtKA" target="_blank" class="spotify-btn">
+                                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                        </svg>
+                                        Ouvir no Spotify
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <p class="album-year">2024</p>
+                                <h4 class="album-title">Cantigas de não chegar</h4>
+                                <p class="album-type">Álbum</p>
+                            </div>
+                        </div>
+
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="./capas/outros-caminhos-vol-2.jpg" alt="Outros caminhos vol. 2">
+                                <div class="album-overlay">
+                                    <a href="https://open.spotify.com/album/3h0xP1U4nt7TPmmWcMXERh?si=2KIPFh6FQd6OBnGHTxE0tQ" target="_blank" class="spotify-btn">
+                                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                        </svg>
+                                        Ouvir no Spotify
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <p class="album-year">2023</p>
+                                <h4 class="album-title">Outros caminhos vol. 2</h4>
+                                <p class="album-type">Álbum</p>
+                            </div>
+                        </div>
+
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="./capas/outros-caminhos.jpg" alt="Outros caminhos">
+                                <div class="album-overlay">
+                                    <a href="https://open.spotify.com/album/1jjxlzkrOv3OmFAWxfqhIY?si=jw3bkAUGTJ-OHd9qXGQKvA" target="_blank" class="spotify-btn">
+                                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                        </svg>
+                                        Ouvir no Spotify
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <p class="album-year">2019</p>
+                                <h4 class="album-title">Outros caminhos</h4>
+                                <p class="album-type">Álbum</p>
+                            </div>
+                        </div>
+
+                        <div class="album-card">
+                            <div class="album-cover">
+                                <img src="./capas/outras-canções-de-desvio.jpg" alt="Outras canções de desvio">
+                                <div class="album-overlay">
+                                    <a href="https://open.spotify.com/album/7Jl1PfrLu5T98qUhIWHamE?si=qJElIVj2QvakGtr6wvDE3g" target="_blank" class="spotify-btn">
+                                        <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                        </svg>
+                                        Ouvir no Spotify
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <p class="album-year">2016</p>
+                                <h4 class="album-title">Outras canções de desvio</h4>
+                                <p class="album-type">Álbum</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollAlbums('albums', 1)">›</button>
+                </div>
+            </div>
+
+            <div class="scroll-wrapper" id="singles">
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/amor-embalado-a-vacuo.jpg" alt="Amor embalado à vácuo">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/0ISkR3R6JfzEiYXUMYwaKx?si=_nZ2pl78SgWCxDlIt_8rxQ" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2023</p>
+            <h4 class="album-title">Amor embalado à vácuo</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/ocio-do-oficio.jpg" alt="Ócio do ofício">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/6Y9mcUiEO7qigNpQUmG2fe?si=6fYokwOET2iVaa3J9h7LdQ" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2022</p>
+            <h4 class="album-title">Ócio do ofício</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/que-reu-sou-eu.jpg" alt="Que réu sou eu">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/6Y0rGniuktU2aW833JFOZv?si=SFn4eK6lRUmApCutNB718w" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2022</p>
+            <h4 class="album-title">Que réu sou eu</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/eclipse.jpg" alt="Eclipse">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/4PJhFrigS8wJUtHjWHfG1m?si=DoBblWcURn-VC16bh9TXKw" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2022</p>
+            <h4 class="album-title">Eclipse</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/alamedas.jpg" alt="Alamedas">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/0PxT6RLWiuQ92ytokzTWBu?si=LGbodOChQ2W6z7Hn302MHw" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2022</p>
+            <h4 class="album-title">Alamedas</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/canto-periferico.jpg" alt="Canto periférico">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/07wVomc90G7fHyocg8Etp3?si=AzIGu48lQiGLzGJqsKT-ww" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2022</p>
+            <h4 class="album-title">Canto periférico</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/cantiga-de-nao-chegar.jpg" alt="Cantiga de não chegar">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/1KxQ4uYjKra9dFw57uAGGX?si=Bt5ZfDomSpGHCarF3s5xkg" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2021</p>
+            <h4 class="album-title">Cantiga de não chegar</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/migalhas.jpg" alt="Migalhas">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/2PlYKzxnG9tfkGzyZl0nWL?si=Yo5VbPzYQ6u1g5S3ncjuLA" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2021</p>
+            <h4 class="album-title">Migalhas</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/vasto-vazio.jpg" alt="Vasto vazio">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/0ULjVhOXq2Gy7qpDKjJjOQ?si=GhRrMT0wRSKJm_WMSql86A" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2021</p>
+            <h4 class="album-title">Vasto vazio</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/rabiolas-enfeitam-parabolicas.jpg" alt="Rabiolas enfeitam parabólicas">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/2xdU4f37LmsgjOvndI9IZh?si=RPVZrM_CQDS5FKb_m5jjWA" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2021</p>
+            <h4 class="album-title">Rabiolas enfeitam parabólicas</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+
+    <div class="album-card">
+        <div class="album-cover">
+            <img src="./singles/espelho.jpg" alt="Espelho">
+            <div class="album-overlay">
+                <a href="https://open.spotify.com/album/60h9yXsBmiB6XX8iNkiyDf?si=drzH0pAiT4CUZvK8oJx_HA" target="_blank" class="spotify-btn">
+                    <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Ouvir no Spotify
+                </a>
+            </div>
+        </div>
+        <div class="album-info">
+            <p class="album-year">2019</p>
+            <h4 class="album-title">Espelho</h4>
+            <p class="album-type">Single</p>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- SETE SÓIS -->
+    <section id="sete-sois" class="sete-sois-section">
+        <div class="sete-sois-container">
+            <div class="section-header fade-in">
+                <p class="section-label">Selo Musical</p>
+                <h2 class="section-title" data-animate-title>Sete Sóis</h2>
+                <div class="title-line" style="background: linear-gradient(to right, var(--gold), var(--paper));"></div>
+            </div>
+            <p class="sete-sois-description fade-in">
+                Um selo independente dedicado à produção e divulgação de música autoral. 
+                O Sete Sóis nasce da paixão pela arte e da crença no poder transformador 
+                da música.
+            </p>
+            
+            <div class="sete-sois-features fade-in">
+    <div class="feature">
+        <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+            </svg>
+        </div>
+        <p class="feature-label">Produção</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.586 7.586"/>
+                <circle cx="11" cy="11" r="2"/>
+            </svg>
+        </div>
+        <p class="feature-label">Arte</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+        </div>
+        <p class="feature-label">Independência</p>
+    </div>
+</div>
+
+            <a href="sete-sois.html" class="btn btn-gold fade-in">Conhecer o Selo</a>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact-section">
+        <div class="contact-container">
+            <div class="section-header fade-in">
+                <p class="section-label">Conexão</p>
+                <h2 class="section-title" data-animate-title>Vamos Conversar</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <p class="fade-in" style="font-size: 1.1rem; line-height: 1.8; color: var(--ink-light); margin-bottom: 2rem;">
+                Entre em contato
+            </p>
+            
+            <div class="social-links fade-in">
+    <a href="https://www.instagram.com/flavviosetesois/" target="_blank" class="social-link" title="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+    <a href="https://open.spotify.com/intl-pt/artist/47MSbQDGNj2kyd3xRUa3fe" target="_blank" class="social-link" title="Spotify">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.478.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.66 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+    </a>
+    <a href="https://www.facebook.com/flavio.a.costa.50" target="_blank" class="social-link" title="Facebook">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </a>
+</div>
+            
+            <a href="mailto:flavvioalves@gmail.com" class="contact-email fade-in">
+                flavvioalves@gmail.com
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Fábrica de Caleidoscópios. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'var(--paper)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations (fade-in)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animação de letras nos títulos
+        const titleObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const title = entry.target;
+                    if (!title.classList.contains('animated')) {
+                        const text = title.textContent;
+                        title.innerHTML = '';
+                        let delay = 0;
+                        for (let i = 0; i < text.length; i++) {
+                            const span = document.createElement('span');
+                            span.className = 'letter';
+                            span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+                            span.style.animationDelay = delay + 's';
+                            title.appendChild(span);
+                            delay += 0.05;
+                        }
+                        title.classList.add('animated');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-animate-title]').forEach(el => {
+            titleObserver.observe(el);
+        });
+
+        // Scroll horizontal dos álbuns
+        function scrollAlbums(containerId, direction) {
+            const container = document.getElementById(containerId);
+            const scrollAmount = 320;
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
