@@ -252,6 +252,9 @@
         }
 
         .hero-title {
+                font-size: 3.2rem;
+                line-height: 1;
+                margin-bottom: 1.5rem;
             font-family: 'Staatliches', display;
             font-size: 8.5rem;
             font-weight: 400;
@@ -908,7 +911,6 @@
 
         .sete-sois-section .section-title {
             color: var(--paper);
-            font-size: 4.5rem;
         }
 
         .sete-sois-description {
@@ -1062,7 +1064,6 @@
 .novo-album-section .section-title {
     color: var(--paper);
     font-family: 'Staatliches', display;
-    font-size: 4.5rem;
     letter-spacing: 3px;
     margin-bottom: 2rem;
 }
@@ -1139,6 +1140,9 @@
             }
 
             .hero-title {
+                font-size: 3.2rem;
+                line-height: 1;
+                margin-bottom: 1.5rem;
                 font-size: 6.5rem;
             }
 
@@ -1193,7 +1197,9 @@
 
         @media (max-width: 600px) {
             .hero-title {
-                font-size: 4.5rem;
+                font-size: 3.2rem;
+                line-height: 1;
+                margin-bottom: 1.5rem;
             }
 
             .hero-image-wrapper {
@@ -1231,7 +1237,19 @@
                 gap: 2rem;
             }
         }
-    </style>
+    @media (max-width: 768px) {
+    .hero-image { display: none !important; }
+    .hero h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; letter-spacing: -2px !important; line-height: 1 !important; margin-bottom: 0.5rem !important; }
+    .hero p { font-size: clamp(0.8rem, 3vw, 1rem) !important; letter-spacing: 3px !important; margin-top: 0.5rem !important; }
+    .hero-content { padding: 0 1rem; }
+    .album-link { flex: 0 0 80vw !important; max-width: 300px; }
+    .album-info { opacity: 1; }
+    .section-subtitle { margin-top: 0; margin-bottom: 2rem; font-size: 1.2rem; }
+    .sobre-texto { font-size: 1rem; text-align: left; }
+    .photo-item { flex: 0 0 80vw; }
+    .contact-email { font-size: 1.1rem; }
+}
+</style>
 </head>
 <body>
 
