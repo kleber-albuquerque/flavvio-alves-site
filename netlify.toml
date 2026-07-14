@@ -7,5 +7,3 @@
      to = "https://:splat"
      status = 301
      force = true
-   EOF
-
